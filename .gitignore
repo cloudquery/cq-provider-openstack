@@ -7,7 +7,7 @@ cq-provider-openstack
 *.pyc
 ._*
 .nfs.*
-**.log
+**/*.log
 *~
 *.orig
 *.rej
@@ -26,12 +26,9 @@ _testmain.go
 /doc/articles/wiki/*.bin
 /goinstall.log
 /last-change
-/misc/cgo/life/run.out
-/misc/cgo/stdio/run.out
-/misc/cgo/testso/main
 /pkg/
 /src/*.*/
-/src/cmd/cgo/zdefaultcc.go
+/src/cmd/**
 /src/cmd/dist/dist
 /src/cmd/go/internal/cfg/zdefaultcc.go
 /src/cmd/go/internal/cfg/zosarch.go
