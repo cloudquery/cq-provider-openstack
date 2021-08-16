@@ -2,14 +2,15 @@ package resources
 
 import (
 	"context"
+
 	"github.com/cloudquery/cq-provider-sdk/provider/schema"
 	"github.com/cloudquery/cq-provider-template/client"
 )
 
-func DemoResource() *schema.Table {
+func OpenstackProject() *schema.Table {
 	return &schema.Table{
 		Name:     "provider_demo_resources",
-		Resolver: fetchDemoResources,
+		Resolver: fetchOpenstackProjects,
 		// Those are optional
 		// DeleteFilter: nil,
 		// Multiplex:    nil,
@@ -18,30 +19,31 @@ func DemoResource() *schema.Table {
 
 		Columns: []schema.Column{
 			{
-				Name: "account_id",
+				Name: "ID",
 				Type: schema.TypeString,
-				//Resolver: provider.ResolveAWSAccount,
 			},
 			{
-				Name: "region",
+				Name: "Name",
 				Type: schema.TypeString,
-				//Resolver: fetchS3BucketLocation,
 			},
 			{
-				Name: "creation_date",
-				Type: schema.TypeTimestamp,
+				Name: "DomaineID",
+				Type: schema.TypeString,
 			},
 			{
-				Name:     "name",
-				Type:     schema.TypeString,
-				Resolver: schema.PathResolver("other_name_in_struct"),
+				Name: "Description",
+				Type: schema.TypeString,
+			},
+			{
+				Name: "Enabled",
+				Type: schema.TypeBool,
 			},
 		},
 		// A table can have relations
 		//Relations: []*schema.Table{
 		//	{
 		//		Name:     "provider_demo_resource_children",
-		//		Resolver: fetchDemoResourceChildren,
+		//		Resolver: fetchOpenstackProjectChildren,
 		//		Columns: []schema.Column{
 		//			{
 		//				Name:     "bucket_id",
@@ -67,7 +69,7 @@ func DemoResource() *schema.Table {
 // ====================================================================================================================
 //                                               Table Resolver Functions
 // ====================================================================================================================
-func fetchDemoResources(ctx context.Context, meta schema.ClientMeta, parent *schema.Resource, res chan interface{}) error {
+func fetchOpenstackProjects(ctx context.Context, meta schema.ClientMeta, parent *schema.Resource, res chan interface{}) error {
 	c := meta.(*client.Client)
 	_ = c
 	// Fetch using the third party client and put the result in res

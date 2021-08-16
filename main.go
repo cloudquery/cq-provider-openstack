@@ -7,7 +7,7 @@ import (
 
 func main() {
 	serve.Serve(&serve.Options{
-		Name:                "aws",
+		Name:                "openstack",
 		Provider:            resources.Provider(),
 		Logger:              nil,
 		NoLogOutputOverride: false,

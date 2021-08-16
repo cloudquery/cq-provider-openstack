@@ -1,17 +1,17 @@
 package resources
 
 import (
-	"github.com/cloudquery/cq-provider-aws/client"
+	"github.com/cloudquery/cq-provider-openstack/client"
 	"github.com/cloudquery/cq-provider-sdk/provider"
 	"github.com/cloudquery/cq-provider-sdk/provider/schema"
 )
 
 func Provider() *provider.Provider {
 	return &provider.Provider{
-		Name:      "your_provider_name",
+		Name:      "openstack",
 		Configure: client.Configure,
 		ResourceMap: map[string]*schema.Table{
-			"demo_resource": DemoResource(),
+			"openstack.projects": OpenstackProject(),
 		},
 		Config: func() provider.Config {
 			return &client.Config{}
