@@ -8,4 +8,4 @@ See documentation at https://github.com/cloudquery/cloudquerydoc/blob/master/dev
 go get github.com/gophercloud/gophercloud
 go get github.com/tools/godep
 godep save ./...
-```<>
+```
